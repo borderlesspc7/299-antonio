@@ -1,12 +1,12 @@
+import { AppRoutes } from "./routes/AppRoutes";
+import { AuthProvider } from "./contexts/AuthContext";
+
 function App() {
   return (
-    <main className="app">
-      <section className="app__header">
-        <h1>Projeto React</h1>
-        <p>Comece a construir sua interface a partir deste ponto limpo.</p>
-      </section>
-    </main>
-  )
+    <AuthProvider>
+      <AppRoutes />
+    </AuthProvider>
+  );
 }
 
-export default App
+export default App;

@@ -20,17 +20,6 @@ body {
   min-height: 100vh;
   background-color: inherit;
 }
-
-#root {
-  width: 100%;
-  max-width: 960px;
-  margin: 0 auto;
-  padding: 3rem 1.5rem;
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-}
-
 a {
   color: #2563eb;
   text-decoration: none;
