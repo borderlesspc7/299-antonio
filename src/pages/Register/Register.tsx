@@ -8,7 +8,7 @@ import {
   FaBolt,
   FaCheckCircle,
 } from "react-icons/fa";
-import Button from "../../components/ui/Button";
+import Button from "../../components/ui/Button/Button";
 import { useAuth } from "../../hooks/useAuth";
 import "./Register.css";
 

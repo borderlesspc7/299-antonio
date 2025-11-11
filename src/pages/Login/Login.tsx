@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { FaEnvelope, FaLock, FaBolt, FaMobile } from "react-icons/fa";
-import Button from "../../components/ui/Button";
+import Button from "../../components/ui/Button/Button";
 import { useAuth } from "../../hooks/useAuth";
 import "./Login.css";
 
