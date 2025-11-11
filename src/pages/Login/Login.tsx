@@ -168,21 +168,21 @@ const Login: React.FC = () => {
         <div className="login-features">
           <div className="feature-item">
             <div className="feature-icon">
-              <FaBolt />
+              <FaBolt style={{ color: "#fff" }} />
             </div>
             <h3>Carregamento Rápido</h3>
             <p>Carregadores de alta velocidade disponíveis 24/7</p>
           </div>
           <div className="feature-item">
             <div className="feature-icon">
-              <FaLock />
+              <FaLock style={{ color: "#fff" }} />
             </div>
             <h3>Seguro e Confiável</h3>
             <p>Sistema de caução automática via cartão de crédito</p>
           </div>
           <div className="feature-item">
             <div className="feature-icon">
-              <FaMobile />
+              <FaMobile style={{ color: "#fff" }} />
             </div>
             <h3>Fácil de Usar</h3>
             <p>Retire, use e devolva com apenas alguns cliques</p>
