@@ -1,0 +1,48 @@
+.app-layout {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  min-height: 100vh;
+  background: linear-gradient(180deg, rgba(102, 126, 234, 0.08), #f7f9fc);
+}
+
+.app-layout__content {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.app-layout__main {
+  flex: 1;
+  padding: 2rem;
+  position: relative;
+  z-index: 0;
+}
+
+.app-layout__main::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at top right,
+    rgba(102, 126, 234, 0.18),
+    transparent 60%
+  );
+  pointer-events: none;
+  z-index: -1;
+}
+
+@media (max-width: 1024px) {
+  .app-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .app-layout__main {
+    padding: 1.5rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .app-layout__main {
+    padding: 1.1rem;
+  }
+}

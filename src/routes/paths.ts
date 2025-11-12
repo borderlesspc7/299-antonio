@@ -2,5 +2,10 @@ export const paths = {
   home: "/",
   login: "/login",
   register: "/register",
-  menu: "/menu",
+  dashboard: "/dashboard",
+  carregadores: "/carregadores",
+  caucao: "/caucao",
+  carregamento: "/carregamento",
+  devolucao: "/devolucao",
+  historico: "/historico",
 };

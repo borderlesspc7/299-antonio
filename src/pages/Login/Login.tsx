@@ -43,7 +43,7 @@ const Login: React.FC = () => {
 
     try {
       await login(formData);
-      navigate("/menu");
+      navigate("/dashboard");
     } catch (err) {
       setError(
         (err as Error).message || "Erro ao fazer login. Tente novamente."

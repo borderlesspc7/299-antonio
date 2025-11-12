@@ -111,7 +111,7 @@ const Register: React.FC = () => {
 
     try {
       await register(formData);
-      navigate("/login");
+      navigate("/dashboard");
     } catch (err) {
       setError(
         (err as Error).message || "Erro ao criar conta. Tente novamente."
