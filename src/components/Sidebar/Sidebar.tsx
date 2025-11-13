@@ -5,10 +5,12 @@ import {
   FaHistory,
   FaCreditCard,
   FaSignOutAlt,
+  FaBolt,
+  FaChevronRight,
 } from "react-icons/fa";
 import { useAuth } from "../../hooks/useAuth";
 import "./Sidebar.css";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import { paths } from "../../routes/paths";
 
 export interface SidebarItem {
@@ -50,7 +52,8 @@ const Sidebar: React.FC<SidebarProps> = ({
   },
 }) => {
   const navigate = useNavigate();
-  const { logOut } = useAuth();
+  const location = useLocation();
+  const { logOut, user } = useAuth();
 
   const handleLogout = async () => {
     try {
@@ -60,35 +63,60 @@ const Sidebar: React.FC<SidebarProps> = ({
       console.error("Erro ao fazer logout:", error);
     }
   };
+
+  const isActive = (path: string) => location.pathname === path;
+
   return (
     <aside className="app-sidebar">
       <div className="app-sidebar__head">
-        <span className="app-sidebar__title">PowerDock</span>
-        <span className="app-sidebar__subtitle">
-          Gerencie seus totens e carregadores
-        </span>
+        <div className="app-sidebar__logo">
+          <FaBolt />
+          <div className="app-sidebar__logo-glow"></div>
+        </div>
+        <h2 className="app-sidebar__title">PowerDock</h2>
+        <p className="app-sidebar__subtitle">Sistema de Carregadores</p>
+        <span className="app-sidebar__badge">v1.0</span>
       </div>
 
       <nav className="app-sidebar__nav">
-        {items.map((item) => (
-          <button
-            key={item.label}
-            type="button"
-            className={`app-sidebar__item ${
-              item.isActive ? "app-sidebar__item--active" : ""
-            }`}
-            onClick={() => navigate(item.path)}
-          >
-            <span className="app-sidebar__icon">{item.icon}</span>
-            <span className="app-sidebar__label">{item.label}</span>
-          </button>
-        ))}
+        {items.map((item) => {
+          const active = isActive(item.path);
+
+          return (
+            <button
+              key={item.label}
+              type="button"
+              className={`app-sidebar__item ${
+                active ? "app-sidebar__item--active" : ""
+              }`}
+              onClick={() => navigate(item.path)}
+              aria-label={`Navegar para ${item.label}`}
+            >
+              {active && <div className="app-sidebar__item-indicator"></div>}
+              <span className="app-sidebar__icon">{item.icon}</span>
+              <span className="app-sidebar__label">{item.label}</span>
+              <FaChevronRight className="app-sidebar__arrow" />
+            </button>
+          );
+        })}
       </nav>
 
       <div className="app-sidebar__footer">
+        <div className="app-sidebar__user">
+          <div className="app-sidebar__user-avatar">
+            {user?.name?.charAt(0) || "U"}
+          </div>
+          <div className="app-sidebar__user-info">
+            <p className="app-sidebar__user-name">{user?.name || "Usuário"}</p>
+            <p className="app-sidebar__user-email">
+              {user?.email || "usuario@email.com"}
+            </p>
+          </div>
+        </div>
+
         <button
           type="button"
-          className="app-sidebar__item app-sidebar__item--danger"
+          className="app-sidebar__logout"
           onClick={handleLogout}
         >
           <span className="app-sidebar__icon">{footerAction.icon}</span>
