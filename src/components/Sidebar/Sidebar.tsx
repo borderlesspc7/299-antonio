@@ -27,12 +27,7 @@ interface SidebarProps {
 }
 
 const menuItems: SidebarItem[] = [
-  { label: "Dashboard", icon: <FaHome />, path: paths.dashboard },
-  {
-    label: "Carregadores",
-    icon: <FaChargingStation />,
-    path: paths.carregadores,
-  },
+  { label: "Carregadores", icon: <FaHome />, path: paths.dashboard },
   { label: "Caução", icon: <FaCreditCard />, path: paths.caucao },
   {
     label: "Carregamento",

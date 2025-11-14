@@ -1,0 +1,40 @@
+.charger-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1.25rem;
+}
+
+.charger-grid__empty {
+  text-align: center;
+  padding: 3rem 1.5rem;
+  color: #64748b;
+  background: #f8fafc;
+  border-radius: 12px;
+  border: 1px dashed #cbd5e1;
+}
+
+.charger-grid__empty p {
+  margin: 0;
+  font-size: 0.9375rem;
+}
+
+@media (max-width: 1200px) {
+  .charger-grid {
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .charger-grid {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 0.875rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .charger-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+

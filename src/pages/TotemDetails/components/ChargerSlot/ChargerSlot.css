@@ -1,0 +1,180 @@
+.charger-slot {
+  background: #ffffff;
+  border: 2px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 1rem;
+  transition: all 0.2s ease;
+  cursor: not-allowed;
+  position: relative;
+  overflow: hidden;
+}
+
+.charger-slot--available {
+  cursor: pointer;
+  border-color: #10b981;
+}
+
+.charger-slot--available:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(16, 185, 129, 0.2);
+  border-color: #059669;
+}
+
+.charger-slot--available:active {
+  transform: translateY(-2px);
+}
+
+.charger-slot--available:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.2);
+}
+
+.charger-slot--unavailable {
+  opacity: 0.6;
+  background: #f8fafc;
+}
+
+.charger-slot__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.875rem;
+  padding-bottom: 0.875rem;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.charger-slot__number {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 600;
+  color: #0f172a;
+  font-size: 0.9375rem;
+}
+
+.charger-slot__icon {
+  color: #6366f1;
+  font-size: 1.125rem;
+}
+
+.charger-slot__battery {
+  display: flex;
+  align-items: center;
+  gap: 0.375rem;
+  font-size: 0.8125rem;
+  color: #64748b;
+}
+
+.charger-slot__battery--full {
+  color: #10b981;
+  font-size: 1rem;
+}
+
+.charger-slot__battery--half {
+  color: #f59e0b;
+  font-size: 1rem;
+}
+
+.charger-slot__battery--low {
+  color: #ef4444;
+  font-size: 1rem;
+}
+
+.charger-slot__battery-text {
+  font-weight: 600;
+  color: #334155;
+}
+
+.charger-slot__body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 0.875rem;
+}
+
+.charger-slot__status {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.charger-slot__status-icon--available {
+  color: #10b981;
+  font-size: 1.125rem;
+}
+
+.charger-slot__status-icon--occupied {
+  color: #ef4444;
+  font-size: 1.125rem;
+}
+
+.charger-slot__status-icon--maintenance {
+  color: #f59e0b;
+  font-size: 1.125rem;
+}
+
+.charger-slot__status-icon--reserved {
+  color: #8b5cf6;
+  font-size: 1.125rem;
+}
+
+.charger-slot__status-icon--default {
+  color: #94a3b8;
+  font-size: 1.125rem;
+}
+
+.charger-slot__status-text {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #334155;
+}
+
+.charger-slot__model {
+  margin: 0;
+  font-size: 0.8125rem;
+  color: #64748b;
+}
+
+.charger-slot__footer {
+  margin-top: 0.5rem;
+}
+
+.charger-slot__select-btn {
+  width: 100%;
+  padding: 0.625rem 1rem;
+  border: none;
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  color: #ffffff;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-family: inherit;
+}
+
+.charger-slot__select-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+}
+
+.charger-slot__select-btn:active {
+  transform: translateY(0);
+}
+
+.charger-slot__select-btn:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.2);
+}
+
+@media (max-width: 768px) {
+  .charger-slot {
+    padding: 0.875rem;
+  }
+
+  .charger-slot__header {
+    margin-bottom: 0.75rem;
+    padding-bottom: 0.75rem;
+  }
+}
+

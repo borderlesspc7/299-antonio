@@ -6,6 +6,7 @@ import type { Totem, TotemFilters } from "../../types/totem";
 import DashboardStats from "./components/DashboardStats/DashboardStats";
 import DashboardFilters from "./components/DashboardFilters/DashboardFilters";
 import TotemCard from "./components/TotemCard/TotemCard";
+import TotemModal from "./components/TotemModal/TotemModal";
 import "./Dashboard.css";
 
 const Dashboard: React.FC = () => {
@@ -16,6 +17,8 @@ const Dashboard: React.FC = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [filterStatus, setFilterStatus] =
     useState<TotemFilters["status"]>("todos");
+  const [selectedTotem, setSelectedTotem] = useState<Totem | null>(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const mockTotens: Totem[] = [
     {
@@ -50,10 +53,6 @@ const Dashboard: React.FC = () => {
     }
   };
 
-  const handleSelectTotem = (totemId: string) => {
-    navigate(`/totem/${totemId}`);
-  };
-
   const stats = totemService.calculateStats(totems);
   const filteredTotens = totemService.filterTotens(
     totems,
@@ -65,6 +64,25 @@ const Dashboard: React.FC = () => {
   const displayedTotens =
     filteredTotens.length > 0 ? filteredTotens : useMock ? mockTotens : [];
   const showEmptyState = displayedTotens.length === 0;
+
+  const handleSelectTotem = (totemId: string) => {
+    const totem =
+      totems.find((t) => t.id === totemId) ||
+      displayedTotens.find((t) => t.id === totemId);
+    if (totem) {
+      setSelectedTotem(totem);
+      setIsModalOpen(true);
+    }
+  };
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+    setSelectedTotem(null);
+  };
+
+  const handleConfirmSelection = (totemId: string) => {
+    navigate(`/totem/${totemId}`);
+  };
 
   if (loading) {
     return (
@@ -127,6 +145,13 @@ const Dashboard: React.FC = () => {
           ))}
         </div>
       )}
+
+      <TotemModal
+        totem={selectedTotem}
+        isOpen={isModalOpen}
+        onClose={handleCloseModal}
+        onConfirm={handleConfirmSelection}
+      />
     </div>
   );
 };

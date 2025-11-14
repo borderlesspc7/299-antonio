@@ -88,8 +88,9 @@ export const totemService = {
 
       return mapFirebaseTotem(totemDoc.id, totemDoc.data());
     } catch (error) {
-      console.error("Erro ao buscar totem:", error);
-      throw new Error("Não foi possível carregar o totem.");
+      console.warn("Firebase não disponível, retornando null:", error);
+      // Retorna null ao invés de lançar erro
+      return null;
     }
   },
 
